@@ -1,4 +1,4 @@
-package com.ibt.app;
+package com.ibt.muhammads.app;
 
 /**
  * Hello world!
