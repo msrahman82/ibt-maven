@@ -20,7 +20,9 @@ pipeline {
         stage('git checkout') {
                             steps {
                                 git branch: 'feature_muhammad', changelog: false, credentialsId: 'git_credentials_msrahman', poll: false, url: 'https://github.com/msrahman82/ibt-maven.git'
+                                sh 'ls -all'
                             }
+
                         }
     }
 }
