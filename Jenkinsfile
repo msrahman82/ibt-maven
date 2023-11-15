@@ -6,6 +6,7 @@ pipeline {
 
     stage('Git Checkout'){
         steps{
+
             echo "git checkout"
             git branch: 'feature_gunjvm', changelog: false, credentialsId: 'ibt', poll: false, url: 'https://github.com/IBT-learning/ibt-maven.git'
         }
@@ -20,7 +21,14 @@ pipeline {
          stage('Compile') {
                 steps{
                    withMaven(maven: 'maven_3.8') {
+                   x = input ("Please enter your response for Compile stage.” [proceed/abort]: ")
+                   if x == "proceed":
+                   	print ("Compiling")
                       sh  'mvn compile'
+                    elif x == "abort":
+                      print ("Aborting")
+                    else:
+                      print ("Invalid Response. This step will not occur at this moment. Will complete rest of the steps in this process.")
                    }
                 }
                 }
