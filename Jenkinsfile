@@ -22,10 +22,10 @@ pipeline {
                 steps{
                    withMaven(maven: 'maven_3.8') {
                    x = input ("Please enter your response for Compile stage.” [proceed/abort]: ")
-                   if x == "proceed":
+                   if (x == "proceed"):
                    	print ("Compiling")
                       sh  'mvn compile'
-                    elif x == "abort":
+                    elif (x == "abort"):
                       print ("Aborting")
                     else:
                       print ("Invalid Response. This step will not occur at this moment. Will complete rest of the steps in this process.")
